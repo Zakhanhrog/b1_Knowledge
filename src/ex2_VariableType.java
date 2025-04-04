@@ -1,4 +1,4 @@
-public class ex2_khaiBaoBien {
+public class ex2_VariableType {
     public static void main(String[] args) {
         int i = 10;
         System.out.println(i);
