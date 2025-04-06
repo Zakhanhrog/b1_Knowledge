@@ -1,7 +1,9 @@
+package Bai1.Introduction_to_Java;
+
 import java.util.Date;
 import java.util.Scanner;
 
-public class b1_Knowledge {
+public class knowledge {
 
     public static void main(String[] args) {
         System.out.println("Hello World!"); // xuat du lieu

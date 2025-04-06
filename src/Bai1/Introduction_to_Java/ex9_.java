@@ -1,3 +1,5 @@
+package Bai1.Introduction_to_Java;
+
 import java.util.Scanner;
 
 public class ex9_ {

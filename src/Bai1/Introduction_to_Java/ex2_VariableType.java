@@ -1,3 +1,5 @@
+package Bai1.Introduction_to_Java;
+
 public class ex2_VariableType {
     public static void main(String[] args) {
         int i = 10;

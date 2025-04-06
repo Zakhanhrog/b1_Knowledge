@@ -1,3 +1,5 @@
+package Bai1.Introduction_to_Java;
+
 import java.util.Date;
 
 public class ex1_timeNow {
