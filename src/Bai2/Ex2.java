@@ -16,8 +16,8 @@ public class Ex2 {
         double laiSuat = input.nextDouble();
 
         double tienLai = 0;
-        for ( int i = 1; i < soThang; i++ ) {
-           tienLai += soTienChoVay * (laiSuat / 100 ) / 12 * soThang;
+        for ( int i = 0; i < soThang; i++ ) {
+            tienLai += soTienChoVay * (laiSuat / 100 ) / 12 * soThang;
         }
         System.out.printf("Tien lai la: %.3f", tienLai);
     }
