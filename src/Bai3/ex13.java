@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class ex13 {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        System.out.println("Enter i1: ");
+        System.out.println("Enter i: ");
         int i1 = input.nextInt();
         int i2 = i1;
         double[][] arr = new double[i1][i2];
@@ -30,5 +30,4 @@ public class ex13 {
         }
         return sum;
     }
-
 }
