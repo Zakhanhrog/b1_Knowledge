@@ -79,23 +79,23 @@ public class Baitap {
         students[4] = new Student(5, "khanhnek", "khanhnek@email.com", 23, 9.0);
 
         double totalAge = 0;
-        for (Student student : students) {
-            totalAge += student.getAge();
+        for (Student a : students) {
+            totalAge += a.getAge();
         }
         double averageAge = totalAge / students.length;
         System.out.println("Average age: " + averageAge);
 
         int passingCount = 0;
-        for (Student student : students) {
-            if (student.getGrade() > 5) {
+        for (Student a : students) {
+            if (a.getGrade() > 5) {
                 passingCount++;
             }
         }
         System.out.println("Number of students passing: " + passingCount);
 
-        for (Student student : students) {
-            if (student.getFullname().equals("khanhdzqua")) {
-                System.out.println("Email of khanhdzqua: " + student.getEmail());
+        for (Student a : students) {
+            if (a.getFullname().equals("khanhdzqua")) {
+                System.out.println("Email of khanhdzqua: " + a.getEmail());
                 break;
             }
         }
