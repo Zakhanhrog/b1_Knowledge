@@ -94,7 +94,7 @@ public class Baitap {
                 return student.getEmail();
             }
         }
-        return null; // Return null if student not found
+        return null;
     }
 
     public static void main(String[] args) {
