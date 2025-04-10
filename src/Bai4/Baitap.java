@@ -1,6 +1,4 @@
 package Bai4;
-
-
 class Student{
     private int id;
     private String fullname;
@@ -67,6 +65,7 @@ class Student{
                 '}';
     }
 
+
 }
 public class Baitap {
 
@@ -91,7 +90,7 @@ public class Baitap {
     public static String getEmailByName(Student[] students, String name) {
         for (Student student : students) {
             if (student.getFullname().equals(name)) {
-                return student.getEmail();
+                return student.toString();
             }
         }
         return null;
