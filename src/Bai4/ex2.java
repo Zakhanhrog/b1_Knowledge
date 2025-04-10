@@ -41,6 +41,7 @@ public class ex2 {
 
         // Giả sử làm một việc gì đó mất thời gian
         System.out.println("Starting...");
+        System.out.println("Khanhdz");
         Thread.sleep(2000); // Chờ 2 giây (ví dụ)
         System.out.println("Stopping...");
 
