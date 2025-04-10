@@ -69,6 +69,34 @@ class Student{
 
 }
 public class Baitap {
+
+    public static double calculateAverageAge(Student[] students) {
+        double totalAge = 0;
+        for (Student student : students) {
+            totalAge += student.getAge();
+        }
+        return totalAge / students.length;
+    }
+
+    public static int countPassingStudents(Student[] students) {
+        int passingCount = 0;
+        for (Student student : students) {
+            if (student.getGrade() > 5) {
+                passingCount++;
+            }
+        }
+        return passingCount;
+    }
+
+    public static String getEmailByName(Student[] students, String name) {
+        for (Student student : students) {
+            if (student.getFullname().equals(name)) {
+                return student.getEmail();
+            }
+        }
+        return null; // Return null if student not found
+    }
+
     public static void main(String[] args) {
 
         Student[] students = new Student[5];
@@ -78,26 +106,17 @@ public class Baitap {
         students[3] = new Student(4, "khanhyeukhanh", "khanhyeukhanh@email.com", 21, 6.5);
         students[4] = new Student(5, "khanhnek", "khanhnek@email.com", 23, 9.0);
 
-        double totalAge = 0;
-        for (Student a : students) {
-            totalAge += a.getAge();
-        }
-        double averageAge = totalAge / students.length;
+        double averageAge = calculateAverageAge(students);
         System.out.println("Average age: " + averageAge);
 
-        int passingCount = 0;
-        for (Student a : students) {
-            if (a.getGrade() > 5) {
-                passingCount++;
-            }
-        }
+        int passingCount = countPassingStudents(students);
         System.out.println("Number of students passing: " + passingCount);
 
-        for (Student a : students) {
-            if (a.getFullname().equals("khanhdzqua")) {
-                System.out.println("Email of khanhdzqua: " + a.getEmail());
-                break;
-            }
+        String khanhdzquaEmail = getEmailByName(students, "khanhdzqua");
+        if (khanhdzquaEmail != null) {
+            System.out.println("Email of khanhdzqua: " + khanhdzquaEmail);
+        } else {
+            System.out.println("Student 'khanhdzqua' not found.");
         }
     }
 }
