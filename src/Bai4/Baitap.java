@@ -1,4 +1,5 @@
 package Bai4;
+
 class Student{
     private int id;
     private String fullname;
@@ -96,8 +97,16 @@ public class Baitap {
         return null;
     }
 
-    public static void main(String[] args) {
+    private static void extracted(Student[] students) {
+        String khanhdzquaEmail = getEmailByName(students, "khanhdzqua");
+        if (khanhdzquaEmail != null) {
+            System.out.println("Email of khanhdzqua: " + khanhdzquaEmail);
+        } else {
+            System.out.println("Student 'khanhdzqua' not found.");
+        }
+    }
 
+    public static void main(String[] args) {
         Student[] students = new Student[5];
         students[0] = new Student(1, "khanhdzqua", "khanhdzqua@email.com", 20, 7.5);
         students[1] = new Student(2, "ç", "khanhdzthw@email.com", 22, 4.0);
@@ -111,11 +120,8 @@ public class Baitap {
         int passingCount = countPassingStudents(students);
         System.out.println("Number of students passing: " + passingCount);
 
-        String khanhdzquaEmail = getEmailByName(students, "khanhdzqua");
-        if (khanhdzquaEmail != null) {
-            System.out.println("Email of khanhdzqua: " + khanhdzquaEmail);
-        } else {
-            System.out.println("Student 'khanhdzqua' not found.");
-        }
+        extracted(students);
     }
+
+
 }
