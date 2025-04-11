@@ -23,15 +23,18 @@ class Product {
         totalPriceSum += this.price;
     }
 
-    public void display() {
-        System.out.println("--------------------");
-        System.out.println("ID: " + this.id);
-        System.out.println("Tên SP: " + this.name);
-        System.out.println("Giá: " + this.price);
-        System.out.println("Số lượng tồn kho: " + this.quantity);
-        System.out.println("Giá trị tồn kho SP này: " + this.getInventoryValue());
-        System.out.println("--------------------");
+    @Override
+    public String toString() {
+
+        return "--------------------\n" +
+                "ID: " + this.id + "\n" +
+                "Tên SP: " + this.name + "\n" +
+                "Giá: " + this.price + "\n" +
+                "Số lượng tồn kho: " + this.quantity + "\n" +
+                "Giá trị tồn kho SP này: " + this.getInventoryValue() + "\n" +
+                "--------------------";
     }
+
 
     public double getInventoryValue() {
         return this.price * this.quantity;
@@ -82,6 +85,18 @@ public class main {
 
     private static final Scanner scanner = new Scanner(System.in);
 
+    public static void main(String[] args) {
+        Product[] products = initializeProducts();
+        setInitialStoreName();
+        displayAllProducts(products);
+        searchProductByName(products);
+        displayProductsOverPriceThreshold(products, 1000000);
+        displayProductWithMaxQuantity(products);
+        displayInventoryStats();
+        changeAndDisplayStoreName("Kho miền Nam");
+        scanner.close();
+    }
+
     private static Product[] initializeProducts() {
         Product[] products = new Product[5];
         products[0] = new Product(1, "Laptop Dell XPS", 35000000, 10);
@@ -102,7 +117,7 @@ public class main {
         System.out.println("Kho hàng: " + Product.getStoreName());
         for (Product p : products) {
             if (p != null) {
-                p.display();
+                System.out.println(p); // Tự động gọi p.toString()
             }
         }
         System.out.println("====================================================");
@@ -116,7 +131,7 @@ public class main {
         for (Product p : products) {
             if (p != null && p.getName().equals(searchName)) {
                 System.out.println(">>> Tìm thấy sản phẩm:");
-                p.display();
+                System.out.println(p); // Tự động gọi p.toString()
                 found = true;
                 break;
             }
@@ -128,11 +143,11 @@ public class main {
     }
 
     private static void displayProductsOverPriceThreshold(Product[] products, double threshold) {
-        System.out.println("\n=========== SẢN PHẨM CÓ GIÁ > " +threshold + " đ ===========");
+        System.out.println("\n=========== SẢN PHẨM CÓ GIÁ > " + threshold + " đ ===========");
         boolean foundPrice = false;
         for (Product p : products) {
             if (p != null && p.getPrice() > threshold) {
-                p.display();
+                System.out.println(p); // Tự động gọi p.toString()
                 foundPrice = true;
             }
         }
@@ -158,7 +173,7 @@ public class main {
 
         if (maxQuantityProduct != null) {
             System.out.println(">>> Sản phẩm có số lượng tồn kho lớn nhất là:");
-            maxQuantityProduct.display();
+            System.out.println(maxQuantityProduct); // Tự động gọi toString()
         } else {
             System.out.println(">>> Không có sản phẩm nào trong kho.");
         }
@@ -178,17 +193,5 @@ public class main {
         Product.setStoreName(newStoreName);
         System.out.println(">>> Đã thay đổi tên kho thành: " + Product.getStoreName());
         System.out.println("======================================");
-    }
-
-    public static void main(String[] args) {
-        Product[] products = initializeProducts();
-        setInitialStoreName();
-        displayAllProducts(products);
-        searchProductByName(products);
-        displayProductsOverPriceThreshold(products, 1000000);
-        displayProductWithMaxQuantity(products);
-        displayInventoryStats();
-        changeAndDisplayStoreName("Kho miền Nam");
-        scanner.close();
     }
 }
